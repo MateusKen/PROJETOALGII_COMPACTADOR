@@ -1,6 +1,6 @@
 '''
-1º FUNÇÃO: VERIFICA SE UMA PALAVRA ESTÁ PRESENTE NO VETOR CASO ENCONTRE A PALAVRA, RETORNA O ÍNDICE, SENÃO RETORNA -1
-2º FUNÇÃO: COPIA DO INÍCIO DO VETOR TODAS AS PALAVRAS UMA POSIÇÃO A DIREITA
+NOME: Mateus Kenzo Iochimoto TIA: 32216289
+NOME: Rodrigo Machado de Assis Oliveira de Lima TIA: 32234678
 '''
 arquivo_L = open('texto.txt', 'r')
 arquivo_E = open('compactado.txt', 'w')
@@ -53,11 +53,14 @@ for i in range(len(vetLinhas)):
             moveVetor(estar, vetLinhas[i][j], palavras)
             #escreve no arquivo palavra
             arquivo_E.write(vetLinhas[i][j])
+            arquivo_E.write(" ")
         else:
             #muda a posicao da palavra repetida para 1ª posicao
             moveVetor(estar, vetLinhas[i][j], palavras)
             #escreve índice da palavra repetida
             arquivo_E.write(str(estar+1))
+            arquivo_E.write(" ")
+    arquivo_E.write('\n')
 
 arquivo_L.close()
 arquivo_E.close()
