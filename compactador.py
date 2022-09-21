@@ -21,16 +21,19 @@ def moveVetor(indice, palavra, lista):
     for i in range(len(lista)):
         if lista[i] == '':
             tamFila = i
+            print(tamFila)
             break
     if indice == -1:
         for i in range(tamFila, 0, -1):
             lista[i] = lista[i-1]
-            lista[0] = palavra
+        lista[0] = palavra
+        return lista
     else:
         palavraRepetida = lista[indice]
         for i in range(indice, 0, -1):
             lista[i] = lista[i-1]            
-            lista[0] = palavra
+        lista[0] = palavra
+        return lista
 
 vetLinhas = ['']*tam #vetor com cada linha e suas palavras
 
@@ -40,9 +43,8 @@ for i in range(tam):
     vetLinha = linha.split(' ')
     vetLinhas[i] = vetLinha
 
-palavras = []*1000
-for i in range(10):
-    print(i)
+palavras = ['']*1000
+
 for i in range(len(vetLinhas)):
     for j in range(len(vetLinhas[i])):
         estar = conferePalavra(vetLinhas[i][j], palavras)
@@ -55,7 +57,7 @@ for i in range(len(vetLinhas)):
             #muda a posicao da palavra repetida para 1ª posicao
             moveVetor(estar, vetLinhas[i][j], palavras)
             #escreve índice da palavra repetida
-            arquivo_E.write(conferePalavra(vetLinhas[i][j], palavras))
+            arquivo_E.write(str(estar+1))
 
 arquivo_L.close()
 arquivo_E.close()
